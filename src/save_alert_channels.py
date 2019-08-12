@@ -32,12 +32,12 @@ def get_indivisual_alert_channel_and_save(channels):
     for channel in channels:
         save_alert_channel(
             to_python2_and_3_compatible_string(channel['name']),
-            channel['uid'],
+            channel['name'],
             channel
         )
         file_path = folder_path + '/' + log_file
         with open(u"{0}".format(file_path) , 'w+') as f:
-            f.write('{}\t{}'.format(channel['uid'], to_python2_and_3_compatible_string(channel['name'])))
+            f.write('{}\t{}'.format(channel['name'], to_python2_and_3_compatible_string(channel['name'])))
 
 
 alert_channels = get_all_alert_channels_in_grafana()
